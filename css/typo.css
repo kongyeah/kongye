@@ -244,9 +244,9 @@ strong, b {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
-  font-weight: 100;
+  font-weight: border;
   color: #000;
-  line-height: 1.35;
+  line-height: 1;
 }
 
 /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
@@ -254,31 +254,31 @@ h1, h2, h3, h4, h5, h6 {
 .typo-h1, .typo-h2, .typo-h3, .typo-h4, .typo-h5, .typo-h6 {
   margin-top: 1.2em;
   margin-bottom: 0.6em;
-  line-height: 1.35;
+  line-height: 1;
 }
 
 .typo h1, .typo-h1 {
-  font-size: 2.2em;
+  font-size: 2em;
   text-transform: none;
 }
 
 .typo h2, .typo-h2 {
-  font-size: 2.0em;
+  font-size: 1.5em;
   text-transform: none;
 }
 
 .typo h3, .typo-h3 {
-  font-size: 1.6em;
+  font-size: 1.2em;
   text-transform: none;
 }
 
 .typo h4, .typo-h4 {
-  font-size: 1.4em;
+  font-size: 1.1em;
   text-transform: none;
 }
 
 .typo h5, .typo h6, .typo-h5, .typo-h6 {
-  font-size: 1.2em;
+  font-size: 1em;
   text-transform: none;
 }
 
