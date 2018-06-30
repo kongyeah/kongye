@@ -7,6 +7,8 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-rendering: optimizelegibility;
+  font-family: "SF Pro Text", "Droid Sans Fallback", "SF UI Text", Roboto-Regular, Arial, sans-serif;
+  font-size: 1em; 
 }
 
 /* 如果你的项目仅支持 IE9+ | Chrome | Firefox 等，推荐在 <html> 中添加 .borderbox 这个 class */
@@ -34,7 +36,7 @@ audio, canvas, video {
 
 /* 要注意表单元素并不继承父级 font 的问题 */
 body, button, input, select, textarea {
-  font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+  font: 300 1em/1.8;
 }
 
 button::-moz-focus-inner,
@@ -172,6 +174,13 @@ mark {
 /* 代码片断 */
 pre, code, pre tt {
   font-family: Courier, 'Courier New', monospace;
+}
+
+code {
+  background: #fffdd1;
+  border-bottom: 1px solid #ffedce;
+  padding: 2px;
+  margin: 0 5px;
 }
 
 pre {
@@ -350,4 +359,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive images */
 .typo img {
   max-width: 100%;
+  border-radius: .5em;
+  border: .15em solid hsl(0, 0%, 33%);
+  box-shadow: 1px 1px 0.5em black inset;
 }
