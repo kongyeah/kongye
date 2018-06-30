@@ -63,7 +63,7 @@
     <script src="/js/util.js"></script>
     <script src="/js/main.js"></script>
 	
-</head>
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><script src="/js/prism.js"></script></head>
     
 		
 <!-- Layouts -->
@@ -71,7 +71,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_twilight.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -126,67 +126,43 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h2 id="node压测"><a href="#node压测" class="headerlink" title="node压测"></a>node压测</h2><h3 id="压测类型"><a href="#压测类型" class="headerlink" title="压测类型"></a>压测类型</h3><ul>
+                <h3 id="node压测"><a href="#node压测" class="headerlink" title="node压测"></a>node压测</h3><h4 id="压测类型"><a href="#压测类型" class="headerlink" title="压测类型"></a>压测类型</h4><ul>
 <li>接口压测</li>
 <li>页面压测（全链路压测）</li>
 </ul>
-<h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><ul>
+<h4 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h4><ul>
 <li>tps：每秒请求数，应用性能的重要度量指标之一</li>
 <li>concurrent: 并发数</li>
 <li>RT：响应时间</li>
 </ul>
-<h3 id="压测前准备"><a href="#压测前准备" class="headerlink" title="压测前准备"></a>压测前准备</h3><ul>
+<h4 id="压测前准备"><a href="#压测前准备" class="headerlink" title="压测前准备"></a>压测前准备</h4><ul>
 <li>在k2中搭建一个新的namespace</li>
 <li>配置好对应的后端压测环境</li>
 <li>选择全新的域名专为压测使用（否则会影响到测试环境）</li>
 </ul>
-<h3 id="小点补充"><a href="#小点补充" class="headerlink" title="小点补充"></a>小点补充</h3><ul>
+<h4 id="小点补充"><a href="#小点补充" class="headerlink" title="小点补充"></a>小点补充</h4><ul>
 <li>一般情况下压力测试客户端接收到的数据量一定会远大于发送出去的数据，但不一定</li>
 <li>有些特例，比如有些post接口，参数可能是个列表，但是返回值可能是bool类型。这样就数据量传出去很大，返回很小</li>
 <li>由于线上测试环境的数据量有较大差别（线上数据量较全），以及线上测试环境的机器性能有较大差别，一般以线上高峰数据进行倒推，测试环境必须达到线上要求单台的tps峰值</li>
 </ul>
-<h3 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h3><ul>
+<h4 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h4><ul>
 <li>ab（apache自带的一款功能强大的测试工具）</li>
 <li>jmeter</li>
 <li>smurf</li>
 </ul>
-<h3 id="ab-测试方法"><a href="#ab-测试方法" class="headerlink" title="ab 测试方法"></a>ab 测试方法</h3><p><code>一般就用来自己性能优化的时候测试使用</code></p>
+<h4 id="ab-测试方法"><a href="#ab-测试方法" class="headerlink" title="ab 测试方法"></a>ab 测试方法</h4><p><code>一般就用来自己性能优化的时候测试使用</code></p>
 <ol>
-<li><p>主要参数</p>
-<ul>
-<li><p>-c</p>
-<ul>
-<li>concurrency</li>
-<li>并发量，一次产生的请求个数，默认是一次一个</li>
-</ul>
-</li>
-<li><p>-t</p>
-<ul>
-<li>timelimit</li>
-<li>测试所进行的最大秒数</li>
-</ul>
-</li>
-<li><p>-n</p>
-<ul>
-<li>总共请求个数</li>
-</ul>
-</li>
-<li><p>-C</p>
-<ul>
-<li>cookie-name=value</li>
-<li>对请求附加一个Cookie</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>测试</p>
-</li>
+<li>主要参数</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ab -n 30000 -c 1000 http://test</span><br><span class="line">// 设置最大请求数和并发请求数</span><br><span class="line"></span><br><span class="line">ab -t 60 -c 100 http://test</span><br><span class="line">// 设置请求时间和并发请求数</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -c </span></span><br><span class="line">concurrency <span class="string">"并发量，一次产生的请求个数，默认是一次一个"</span></span><br><span class="line"><span class="comment">// -t</span></span><br><span class="line">timelimit <span class="string">"测试所进行的最大秒数"</span></span><br><span class="line"><span class="comment">// -n</span></span><br><span class="line"><span class="string">"总共请求个数"</span></span><br><span class="line"><span class="comment">// -C</span></span><br><span class="line">cookie-name=value <span class="string">"对请求附加一个Cookie"</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>测试</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ab -n <span class="number">30000</span> -c <span class="number">1000</span> http:<span class="comment">//test</span></span><br><span class="line"><span class="comment">// 设置最大请求数和并发请求数</span></span><br><span class="line"></span><br><span class="line">ab -t <span class="number">60</span> -c <span class="number">100</span> http:<span class="comment">//test</span></span><br><span class="line"><span class="comment">// 设置请求时间和并发请求数</span></span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>测试结果主要参数解读</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Concurrency Level: 1000</span><br><span class="line">// 测试的并发数</span><br><span class="line">Time taken for tests: 11.846 seconds</span><br><span class="line">// 整个测试持续的时间</span><br><span class="line">Complete requests: 4000</span><br><span class="line">// 完成的请求数量</span><br><span class="line">Failed requests: 0</span><br><span class="line">// 失败的请求数量</span><br><span class="line">Write errors: 0</span><br><span class="line">Total transferred: 204586997 bytes</span><br><span class="line">// 整个过程中的网络传输量</span><br><span class="line">HTML transferred: 203479961 bytes</span><br><span class="line">// 整个过程中的HTML内容传输量</span><br><span class="line">Requests per second: 337.67 [#/sec] (mean)</span><br><span class="line">// 最重要的指标之一，相当于LR中的每秒事务数，后面括号中的mean表示这是一个平均值</span><br><span class="line">Time per request: 2961.449 [ms] (mean)</span><br><span class="line">// 最重要的指标之二，相当于LR中的平均事务响应时间，后面括号中的mean表示这是一个平均值</span><br><span class="line">Time per request: 2.961 [ms] (mean, across all concurrent requests)</span><br><span class="line">// 每个连接请求实际运行时间的平均值</span><br><span class="line">Transfer rate: 16866.07 [Kbytes/sec] received</span><br><span class="line">// 平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Concurrency Level: <span class="number">1000</span></span><br><span class="line"><span class="comment">// 测试的并发数</span></span><br><span class="line">Time taken <span class="keyword">for</span> tests: <span class="number">11.846</span> seconds</span><br><span class="line"><span class="comment">// 整个测试持续的时间</span></span><br><span class="line">Complete requests: <span class="number">4000</span></span><br><span class="line"><span class="comment">// 完成的请求数量</span></span><br><span class="line">Failed requests: <span class="number">0</span></span><br><span class="line"><span class="comment">// 失败的请求数量</span></span><br><span class="line">Write errors: <span class="number">0</span></span><br><span class="line">Total transferred: <span class="number">204586997</span> bytes</span><br><span class="line"><span class="comment">// 整个过程中的网络传输量</span></span><br><span class="line">HTML transferred: <span class="number">203479961</span> bytes</span><br><span class="line"><span class="comment">// 整个过程中的HTML内容传输量</span></span><br><span class="line">Requests per second: 337.67 [#/sec] (mean)</span><br><span class="line"><span class="comment">// 最重要的指标之一，相当于LR中的每秒事务数，后面括号中的mean表示这是一个平均值</span></span><br><span class="line">Time per request: <span class="number">2961.449</span> [ms] (mean)</span><br><span class="line"><span class="comment">// 最重要的指标之二，相当于LR中的平均事务响应时间，后面括号中的mean表示这是一个平均值</span></span><br><span class="line">Time per request: <span class="number">2.961</span> [ms] (mean, across all concurrent requests)</span><br><span class="line"><span class="comment">// 每个连接请求实际运行时间的平均值</span></span><br><span class="line">Transfer rate: <span class="number">16866.07</span> [Kbytes/sec] received</span><br><span class="line"><span class="comment">// 平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题</span></span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>注意点</li>
 </ol>
@@ -194,25 +170,24 @@
 <li>ab命令在一般系统上面做测试时候，一般并发不能超过1024个，其实是因为因为系统限制每个进程打开的最大文件数为1024</li>
 <li>最大请求数量不要超过五万个</li>
 </ul>
-<h3 id="jmeter测试方法"><a href="#jmeter测试方法" class="headerlink" title="jmeter测试方法"></a>jmeter测试方法</h3><p><code>一般用来测试单接口 会产出结果图表</code></p>
+<h4 id="jmeter测试方法"><a href="#jmeter测试方法" class="headerlink" title="jmeter测试方法"></a>jmeter测试方法</h4><p><code>一般用来测试单接口 会产出结果图表</code></p>
 <ol>
 <li>首先你需要下载一个jmeter</li>
 <li><p>下载安装一个插件 将它移到jmeter\lib\ext下 然后重启jmeter<br><a href="http://git.caimi-inc.com/client/finance-discussion/uploads/5f36e2597f286529c33c208d0bec0d23/jmeter-plugins-graphs-basic-2.0.jar" target="_blank" rel="noopener">jmeter-plugins-graphs-basic-2.0.jar</a></p>
 </li>
 <li><p>打开下载的jmeter 在bin目录下找到jmeter.sh文件 用终端打开可启动jmeter</p>
 </li>
-<li><p>右键点击测试计划(Test Plan)添加-&gt;Threads-&gt;Threads Group(线程组) <code>线程组是用来定义虚拟用户数量、用户加载方式和时间调度的组件。 所有请求都是运行于线程组之下的，这个组件是必须的。</code><br><img src="http://git.caimi-inc.com/client/finance-discussion/uploads/6d6cee7e71b12ce430e6c6c0988a7cbd/屏幕快照_2018-01-22_下午5.43.15.png" alt="屏幕快照_2018-01-22_下午5.43.15"></p>
-</li>
-<li><p>添加-&gt;sample-&gt;HTTP请求<br><img src="http://git.caimi-inc.com/client/finance-discussion/uploads/da068b7c37c4820ee6421b539114a52b/image.png" alt="image"></p>
-</li>
+<li>右键点击测试计划(Test Plan)添加-&gt;Threads-&gt;Threads Group(线程组) <code>线程组是用来定义虚拟用户数量、用户加载方式和时间调度的组件。 所有请求都是运行于线程组之下的，这个组件是必须的。</code><br><img src="/uploads/9.png" alt="9"></li>
+</ol>
+<ol start="4">
+<li>添加-&gt;sample-&gt;HTTP请求</li>
 </ol>
 <p><code>你也可以采用更接近实际情况的分段并发模拟 右键测试计划-&gt;添加-&gt;Threads-&gt;jp@gc - Stepping Thread Group</code></p>
-<ul>
-<li><img src="http://git.caimi-inc.com/client/finance-discussion/uploads/e8673b22233dbb189213394a7d2928d0/image.png" alt="image"></li>
-</ul>
+<p><img src="/uploads/17.png" alt="17"></p>
 <ol start="5">
-<li><p>配置响应断言 添加-&gt;断言-&gt;响应式断言<br><img src="http://git.caimi-inc.com/client/finance-discussion/uploads/aaaf09444a8e9e1181a5475c2db07a9e/image.png" alt="image"></p>
-</li>
+<li>配置响应断言 添加-&gt;断言-&gt;响应式断言<br><img src="/uploads/18.png" alt="18"></li>
+</ol>
+<ol start="6">
 <li><p>添加-&gt;监听器-&gt;聚合报告 （和以下两个为压测之后看结果用）</p>
 </li>
 <li><p>添加-&gt;监听器-&gt;jp@gc-Transactions per second</p>
@@ -224,29 +199,11 @@
 <li><p>查看结果</p>
 </li>
 </ol>
-<ul>
-<li><p><img src="http://git.caimi-inc.com/client/finance-discussion/uploads/fb489cf1a59a70721db70fb367527dea/image.png" alt="image"></p>
-</li>
-<li><p><img src="http://git.caimi-inc.com/client/finance-discussion/uploads/6745a54f233f6a17ed5b120a5cc7fee4/image.png" alt="image"></p>
-</li>
-<li><p><img src="http://git.caimi-inc.com/client/finance-discussion/uploads/062df474f9815dca72f02634fa42f846/image.png" alt="image"></p>
-</li>
-<li><p><img src="http://git.caimi-inc.com/client/finance-discussion/uploads/9af577aa9b310600f54cb5f5dce1c116/image.png" alt="image"></p>
-</li>
-</ul>
+<p><img src="/uploads/16.png" alt="16"></p>
+<p><img src="/uploads/8.png" alt="8"></p>
+<p><img src="/uploads/10.png" alt="10"></p>
 <ol start="11">
 <li>分析结果报表总结</li>
-</ol>
-<h3 id="Smurf测试平台"><a href="#Smurf测试平台" class="headerlink" title="Smurf测试平台"></a>Smurf测试平台</h3><p><code>非测试人员不会总结怎么办 不会产出测试报告怎么办 使用挖财测试产出的Smurf测试平台</code></p>
-<p>地址：<a href="http://smurf.test.wacai.info/" target="_blank" rel="noopener">Smurf服务端性能测试平台</a></p>
-<ol>
-<li>将之前在jemeter里面添加好所有的配置 然后导出一个完整的脚本</li>
-<li>在Smurf中导入脚本 场景管理-&gt;上传脚本场景管理-&gt;<img src="http://git.caimi-inc.com/client/finance-discussion/uploads/14a6f5ed06b3ea5518e4839b0d464cfd/image.png" alt="image"></li>
-</ol>
-<p><img src="http://git.caimi-inc.com/client/finance-discussion/uploads/56631bcd5be3a8af8f411bd76b16fbb4/image.png" alt="image"></p>
-<ol start="3">
-<li>点击执行</li>
-<li>拿到完整的测试报告</li>
 </ol>
 
             </div>
