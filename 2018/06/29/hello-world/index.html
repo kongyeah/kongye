@@ -154,15 +154,49 @@
 <ol>
 <li>主要参数</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -c </span></span><br><span class="line">concurrency <span class="string">"并发量，一次产生的请求个数，默认是一次一个"</span></span><br><span class="line"><span class="comment">// -t</span></span><br><span class="line">timelimit <span class="string">"测试所进行的最大秒数"</span></span><br><span class="line"><span class="comment">// -n</span></span><br><span class="line"><span class="string">"总共请求个数"</span></span><br><span class="line"><span class="comment">// -C</span></span><br><span class="line">cookie-name=value <span class="string">"对请求附加一个Cookie"</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// -c </span>
+concurrency <span class="token string">"并发量，一次产生的请求个数，默认是一次一个"</span>
+<span class="token comment" spellcheck="true">// -t</span>
+timelimit <span class="token string">"测试所进行的最大秒数"</span>
+<span class="token comment" spellcheck="true">// -n</span>
+<span class="token string">"总共请求个数"</span>
+<span class="token comment" spellcheck="true">// -C</span>
+cookie<span class="token operator">-</span>name<span class="token operator">=</span>value <span class="token string">"对请求附加一个Cookie"</span>
+</code></pre>
 <ol start="2">
 <li>测试</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ab -n <span class="number">30000</span> -c <span class="number">1000</span> http:<span class="comment">//test</span></span><br><span class="line"><span class="comment">// 设置最大请求数和并发请求数</span></span><br><span class="line"></span><br><span class="line">ab -t <span class="number">60</span> -c <span class="number">100</span> http:<span class="comment">//test</span></span><br><span class="line"><span class="comment">// 设置请求时间和并发请求数</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">ab <span class="token operator">-</span>n <span class="token number">30000</span> <span class="token operator">-</span>c <span class="token number">1000</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>test
+<span class="token comment" spellcheck="true">// 设置最大请求数和并发请求数</span>
+
+ab <span class="token operator">-</span>t <span class="token number">60</span> <span class="token operator">-</span>c <span class="token number">100</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>test
+<span class="token comment" spellcheck="true">// 设置请求时间和并发请求数</span>
+</code></pre>
 <ol start="3">
 <li>测试结果主要参数解读</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Concurrency Level: <span class="number">1000</span></span><br><span class="line"><span class="comment">// 测试的并发数</span></span><br><span class="line">Time taken <span class="keyword">for</span> tests: <span class="number">11.846</span> seconds</span><br><span class="line"><span class="comment">// 整个测试持续的时间</span></span><br><span class="line">Complete requests: <span class="number">4000</span></span><br><span class="line"><span class="comment">// 完成的请求数量</span></span><br><span class="line">Failed requests: <span class="number">0</span></span><br><span class="line"><span class="comment">// 失败的请求数量</span></span><br><span class="line">Write errors: <span class="number">0</span></span><br><span class="line">Total transferred: <span class="number">204586997</span> bytes</span><br><span class="line"><span class="comment">// 整个过程中的网络传输量</span></span><br><span class="line">HTML transferred: <span class="number">203479961</span> bytes</span><br><span class="line"><span class="comment">// 整个过程中的HTML内容传输量</span></span><br><span class="line">Requests per second: 337.67 [#/sec] (mean)</span><br><span class="line"><span class="comment">// 最重要的指标之一，相当于LR中的每秒事务数，后面括号中的mean表示这是一个平均值</span></span><br><span class="line">Time per request: <span class="number">2961.449</span> [ms] (mean)</span><br><span class="line"><span class="comment">// 最重要的指标之二，相当于LR中的平均事务响应时间，后面括号中的mean表示这是一个平均值</span></span><br><span class="line">Time per request: <span class="number">2.961</span> [ms] (mean, across all concurrent requests)</span><br><span class="line"><span class="comment">// 每个连接请求实际运行时间的平均值</span></span><br><span class="line">Transfer rate: <span class="number">16866.07</span> [Kbytes/sec] received</span><br><span class="line"><span class="comment">// 平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">Concurrency Level<span class="token punctuation">:</span> <span class="token number">1000</span>
+<span class="token comment" spellcheck="true">// 测试的并发数</span>
+Time taken <span class="token keyword">for</span> tests<span class="token punctuation">:</span> <span class="token number">11.846</span> seconds
+<span class="token comment" spellcheck="true">// 整个测试持续的时间</span>
+Complete requests<span class="token punctuation">:</span> <span class="token number">4000</span>
+<span class="token comment" spellcheck="true">// 完成的请求数量</span>
+Failed requests<span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token comment" spellcheck="true">// 失败的请求数量</span>
+Write errors<span class="token punctuation">:</span> <span class="token number">0</span>
+Total transferred<span class="token punctuation">:</span> <span class="token number">204586997</span> bytes
+<span class="token comment" spellcheck="true">// 整个过程中的网络传输量</span>
+HTML transferred<span class="token punctuation">:</span> <span class="token number">203479961</span> bytes
+<span class="token comment" spellcheck="true">// 整个过程中的HTML内容传输量</span>
+Requests per second<span class="token punctuation">:</span> <span class="token number">337.67</span> <span class="token punctuation">[</span>#<span class="token operator">/</span>sec<span class="token punctuation">]</span> <span class="token punctuation">(</span>mean<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 最重要的指标之一，相当于LR中的每秒事务数，后面括号中的mean表示这是一个平均值</span>
+Time per request<span class="token punctuation">:</span> <span class="token number">2961.449</span> <span class="token punctuation">[</span>ms<span class="token punctuation">]</span> <span class="token punctuation">(</span>mean<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 最重要的指标之二，相当于LR中的平均事务响应时间，后面括号中的mean表示这是一个平均值</span>
+Time per request<span class="token punctuation">:</span> <span class="token number">2.961</span> <span class="token punctuation">[</span>ms<span class="token punctuation">]</span> <span class="token punctuation">(</span>mean<span class="token punctuation">,</span> across all concurrent requests<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 每个连接请求实际运行时间的平均值</span>
+Transfer rate<span class="token punctuation">:</span> <span class="token number">16866.07</span> <span class="token punctuation">[</span>Kbytes<span class="token operator">/</span>sec<span class="token punctuation">]</span> received
+<span class="token comment" spellcheck="true">// 平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题</span>
+</code></pre>
 <ol start="4">
 <li>注意点</li>
 </ol>
