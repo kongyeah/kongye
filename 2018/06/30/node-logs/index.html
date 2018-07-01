@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    ciel_kong
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="kongye" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><script src="/js/prism.js"></script></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_twilight.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">天琊</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/kongyeah" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 13rem;background-image: url(https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1530459301117&amp;di=c4b823038da036ffa95cc36e29a54161&amp;imgtype=0&amp;src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F71cf3bc79f3df8dcb0a0ed67c711728b461028a2.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >node日志</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="日志打印规范"><a href="#日志打印规范" class="headerlink" title="日志打印规范"></a>日志打印规范</h2><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><ol>
+<li>本地调试代码</li>
+<li>线上问题跟踪</li>
+<li>场景还原</li>
+<li>监控调优</li>
+</ol>
+<h3 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h3><ul>
+<li><p><strong>DEBUG（调试）</strong>：本地开发调试日志。</p>
+<blockquote>
+<p>一般来说，在系统实际运行过程中，不会输出该级别的日志。因此，开发人员可以打印任何自己觉得有利于了解系统运行状态的东东。不过很多场景下，过多的 DEBUG 日志，并不是好事，建议是按照业务逻辑的走向打印。打个比方，打印日志就像读书时划重点，如果导出都是重点，也就失去了重点。</p>
+</blockquote>
+</li>
+<li><p><strong>INFO（通知）</strong>：记录系统运行状态等关联信息。</p>
+<blockquote>
+<p>该日志级别，常用于反馈系统当前状态给最终用户。所以，在这里输出的信息，应该对最终用户具有实际意义，也就是最终用户要能够看得明白是什么意思才行。</p>
+</blockquote>
+</li>
+<li><p><strong>WARN（警告）</strong>：表示系统模块发生问题，但并不影响系统运行。</p>
+<blockquote>
+<p>此时，进行一些修复性的工作，还能把系统恢复到正常的状态。</p>
+</blockquote>
+</li>
+<li><p><strong>ERROR（错误）</strong>：系统抛错。</p>
+<blockquote>
+<p>主体系统核心模块正常工作，需要修复才能正常工作。 就是说可以进行一些修复性的工作，但无法确定系统会正常的工作下去，系统在以后的某个阶段，很可能会因为当前的这个问题，导致一个无法修复的错误（例如宕机），但也可能一直工作到停止也不出现严重问题。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="日志内容"><a href="#日志内容" class="headerlink" title="日志内容"></a>日志内容</h3><ul>
+<li><strong>时间</strong>，包含时区信息和毫秒（默认记录）</li>
+<li><strong>日志级别</strong>，例如 debug、info 以及 warn、error 根据不同方法区分。</li>
+<li><strong>会话标识</strong>，用以记录触发的客户端或用户，比如登陆账号，seesion 信息等。</li>
+<li><strong>功能标识</strong>，方便日志搜索，并跟踪指定功能的完整轨迹。</li>
+<li><strong>精炼的内容</strong>，包括场景信息（谁，什么功能等），状态信息 (开始，中断，结束) 以及重要参数。</li>
+<li><strong>其他信息</strong>，其它可能的有用信息包括：版本号，线程号等等。</li>
+</ul>
+<h2 id="打印时机"><a href="#打印时机" class="headerlink" title="打印时机"></a>打印时机</h2><table>
+<thead>
+<tr>
+<th>日志级别</th>
+<th>时机</th>
+<th>对应 api</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEBUG</td>
+<td>调试日志。调试使用。</td>
+<td>log.debug</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>业务日志。记录业务的主流程的走向。</td>
+<td>log.info</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>警告日志。一般来说，发生对整个系统没什么影响的异常时，可以打印该级别的日志。</td>
+<td>log.warn</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>错误日志。级别比较高，如果发生一些异常，并且任何时候都需要打印时使用。</td>
+<td>log.error</td>
+</tr>
+</tbody>
+</table>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>全打印等于没打印</li>
+<li>打印日志也会有性能损耗，请慎重</li>
+<li>打印日志后，务必配置 grail 报警，用于接收报警信息</li>
+<li>千万不要将 console.log 等代码发布到生产环境，由于 console.log 日志由 pm2 收集在 ~/.pm2 目录下，而 ~/ 目录又有大小限制，使得服务器会报警，请务必完全使用日志文件代替</li>
+<li>仅收集传入『错误对象』的有限字段（比如：message 和 stack），自定义字段请自行转为字符串，并加入 message 字段中</li>
+</ol>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>
